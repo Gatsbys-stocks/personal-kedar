@@ -9,8 +9,15 @@
 const CONTACTO = {
   telefono: "+34 632 787 457",          // como se ve en la web
   whatsapp: "34632787457",              // solo números, con prefijo 34
-  email:    "kndhungana2017@gmail.com",
-  facebook: ""                          // ej: "https://www.facebook.com/kedar.dhungana"
+  email:    "kndhungana2017@gmail.com"
+};
+
+/* Redes sociales de Kedar (bloque "Síguele en redes" de Contacto).
+   Pon solo el usuario, sin @. Si se deja vacío, esa red no sale. */
+const REDES = {
+  tiktok:    "kedardhungana4",
+  instagram: "kndhungana",
+  facebook:  ""                         // enlace completo de su perfil o página
 };
 
 /* Locales. Se pintan en este orden en la sección "Negocios".
@@ -25,7 +32,7 @@ const LOCALES = [
     tipo: "Supermercado nepalí",
     nombre: "Supermercat Industria",
     nombreOriginal: "नेपाली सुपरमार्केट",
-    cargo: "Fundador · Administrador único",
+    cargo: "Propietario · Administrador único (Buddha Bhumi SL)",
     descripcion: "Alimentación nepalí, momos congelados, ollas a presión y arroceras, vaporeras para momos, bebidas y artículos de puja. Envíos desde Barcelona a otras ciudades de Europa.",
     direccion: "C/ Indústria, 124 · 08025 Barcelona",
     mapa: "Carrer de la Indústria 124, 08025 Barcelona",

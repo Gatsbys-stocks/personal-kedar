@@ -221,6 +221,19 @@ footer small{display:block;margin-top:10px;color:#8e93bd;font-size:12px;letter-s
 }
 .linfo a{color:inherit;text-decoration:none;overflow-wrap:anywhere}
 .linfo a:hover{color:var(--crimson)}
+/* Redes */
+.redes{margin-top:34px}
+.redes-k{font-size:11px;margin-bottom:12px}
+.redes-list{display:flex;flex-wrap:wrap;gap:12px}
+.red{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;border-radius:16px;text-decoration:none;color:#fff;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);transition:transform .3s,background .3s}
+.red:hover{transform:translateY(-2px);background:rgba(255,255,255,.18)}
+.red svg{width:28px;height:28px;flex:none;padding:6px;border-radius:9px;box-sizing:content-box}
+.red span{display:flex;flex-direction:column;line-height:1.25;font-size:14px;font-weight:600}
+.red b{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.red-tt svg{background:#000;color:#fff}
+.red-ig svg{background:linear-gradient(45deg,#f9a13a,#e1306c 50%,#833ab4);color:#fff}
+.red-fb svg{background:#1877f2;color:#fff}
 /* Pie */
 footer .legal{display:block;margin-top:18px;color:#6d729d;font-size:11.5px;letter-spacing:.06em}
 /* Accesibilidad: foco visible */

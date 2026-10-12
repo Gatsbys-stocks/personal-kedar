@@ -1,10 +1,10 @@
 # Kedar Nath Dhungana
 
-Web de presentación de **Kedar Nath Dhungana**, empresario nepalí en Barcelona y presidente de Prabasi Nepali Manch Spain (Overseas Nepali Forum – Spain). Es un enlace para compartir: quien lo abre ve quién es, qué locales tiene y cómo contactarle.
+Web de presentación de **Kedar Nath Dhungana**, empresario nepalí en Barcelona, propietario de Buddha Bhumi y expresidente de Prabasi Nepali Manch Spain (Overseas Nepali Forum – Spain). Es un enlace para compartir: quien lo abre ve quién es, qué locales tiene y cómo contactarle.
 
 ## El problema que resolví
 
-Kedar tiene cuatro locales en Barcelona y un cargo en la comunidad nepalí, pero todo estaba repartido en tarjetas de visita, Facebook y registros de empresas. Necesitaba un solo enlace profesional que se pudiera mandar por WhatsApp y que reuniera su perfil, sus negocios y su contacto, con una entrada que se recuerde.
+Kedar tiene cuatro locales en Barcelona y un cargo en la comunidad nepalí, pero todo estaba repartido en tarjetas de visita, TikTok, Instagram, Facebook y registros de empresas. Necesitaba un solo enlace profesional que se pudiera mandar por WhatsApp y que reuniera su perfil, sus negocios y su contacto, con una entrada que se recuerde.
 
 ## Qué hice
 
@@ -12,8 +12,8 @@ Kedar tiene cuatro locales en Barcelona y un cargo en la comunidad nepalí, pero
 - **Animación suave**: el scroll marca el destino y la animación lo sigue con suavidad, así que no da saltos aunque se baje rápido.
 - **Sobre Kedar**: origen, formación y trayectoria.
 - **Negocios**: Supermercat Industria, Atithi, Aruku y Kobe, cada uno con su color, dirección, teléfonos y botones de WhatsApp, Web, Instagram, Llamar y Cómo llegar (Google Maps).
-- **Comunidad**: Prabasi Nepali Manch Spain y Kaski Samaj Spain.
-- **Contacto**: WhatsApp, llamada y email directos.
+- **Comunidad**: expresidente de Prabasi Nepali Manch Spain y de Kaski Samaj Spain.
+- **Contacto y redes**: WhatsApp, llamada y email directos, y enlaces a su TikTok (@kedardhungana4) e Instagram (@kndhungana).
 - **Vista previa al compartir**: imagen y texto propios cuando se pega el enlace en WhatsApp o Facebook.
 - **Datos para Google** (`schema.org/Person`): nombre, cargo y locales para que los buscadores le identifiquen.
 
@@ -35,7 +35,8 @@ Kedar tiene cuatro locales en Barcelona y un cargo en la comunidad nepalí, pero
 ## Cambiar datos
 
 - **Añadir, quitar o editar un local**: `js/config.js` → `LOCALES`. Cada local es un bloque `{ ... }`; un campo vacío (`""`) no se muestra.
-- **Teléfono, email o Facebook de Kedar**: `js/config.js` → `CONTACTO`. Si `facebook` tiene enlace, sale su botón.
+- **Teléfono y email de Kedar**: `js/config.js` → `CONTACTO`.
+- **Redes (TikTok, Instagram, Facebook)**: `js/config.js` → `REDES`. Solo el usuario, sin @; Facebook con el enlace completo. Si una se deja vacía, no sale.
 - **Velocidad de la animación**: `js/config.js` → `SUAVIDAD`. La longitud del recorrido está en `css/styles.css` → `#intro { height: 420vh }`.
 - **Textos de "Sobre Kedar" y "Comunidad"**: directamente en `index.html`.
 

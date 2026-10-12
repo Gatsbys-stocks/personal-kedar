@@ -22,6 +22,7 @@
     map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
     mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
     wa: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>',
+    tt: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.8 5.8 0 0 0-.8-.1 5.8 5.8 0 1 0 5.8 5.8V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"/></svg>',
     fb: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8h3.3z"/></svg>'
   };
 
@@ -74,13 +75,27 @@
       lineas.push(`<li>${ICON.mail}<a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>`);
       botones.push(`<a class="btn ghost" href="mailto:${esc(c.email)}">${ICON.mail}Email</a>`);
     }
-    if (c.facebook) botones.push(`<a class="btn ghost" href="${esc(c.facebook)}" ${externo}>${ICON.fb}Facebook</a>`);
     if (info) info.innerHTML = lineas.join("");
     if (btns) btns.innerHTML = botones.join("");
   }
 
+  /* ---------- 1c. Redes ---------- */
+  function pintarRedes() {
+    const caja = $("redes");
+    if (!caja || typeof REDES === "undefined") return;
+    const r = REDES, items = [];
+    const limpio = (u) => String(u).trim().replace(/^@/, "");
+    if (r.tiktok) items.push(`<a class="red red-tt" href="https://www.tiktok.com/@${esc(limpio(r.tiktok))}" ${externo}>${ICON.tt}<span><b>TikTok</b>@${esc(limpio(r.tiktok))}</span></a>`);
+    if (r.instagram) items.push(`<a class="red red-ig" href="https://www.instagram.com/${esc(limpio(r.instagram))}/" ${externo}>${ICON.ig}<span><b>Instagram</b>@${esc(limpio(r.instagram))}</span></a>`);
+    const fb = r.facebook || (typeof CONTACTO !== "undefined" && CONTACTO.facebook);
+    if (fb) items.push(`<a class="red red-fb" href="${esc(fb)}" ${externo}>${ICON.fb}<span><b>Facebook</b>Kedar Dhungana</span></a>`);
+    caja.innerHTML = items.join("");
+    if (!items.length) caja.parentElement.hidden = true;
+  }
+
   pintarLocales();
   pintarContacto();
+  pintarRedes();
 
   /* ---------- 2. Banderas de oración (lungta) ---------- */
   (function banderas() {
