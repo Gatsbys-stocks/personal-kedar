@@ -12,12 +12,25 @@ const CONTACTO = {
   email:    "kndhungana2017@gmail.com"
 };
 
-/* Redes sociales de Kedar (bloque "Síguele en redes" de Contacto).
-   Pon solo el usuario, sin @. Si se deja vacío, esa red no sale. */
+/* Redes sociales de Kedar (sección "Síguele").
+   - usuario: sin @. Si se deja vacío, esa red no sale.
+   - Los números se escriben a mano (como salen en la app) y conviene
+     actualizarlos de vez en cuando. Si se dejan vacíos, no se muestran. */
 const REDES = {
-  tiktok:    "kedardhungana4",
-  instagram: "kndhungana",
-  facebook:  ""                         // enlace completo de su perfil o página
+  tiktok: {
+    usuario: "kedardhungana4",
+    seguidores: "14,8 mil",
+    meGusta: "114,6 mil"
+  },
+  instagram: {
+    usuario: "kndhungana",
+    seguidores: "1.001",
+    publicaciones: "35"
+  },
+  facebook: {
+    enlace: "",                // enlace completo de su perfil o página
+    seguidores: "6,1 mil"
+  }
 };
 
 /* Locales. Se pintan en este orden en la sección "Negocios".

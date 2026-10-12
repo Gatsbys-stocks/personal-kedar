@@ -13,7 +13,8 @@ Kedar tiene cuatro locales en Barcelona y un cargo en la comunidad nepalí, pero
 - **Sobre Kedar**: origen, formación y trayectoria.
 - **Negocios**: Supermercat Industria, Atithi, Aruku y Kobe, cada uno con su color, dirección, teléfonos y botones de WhatsApp, Web, Instagram, Llamar y Cómo llegar (Google Maps).
 - **Comunidad**: expresidente de Prabasi Nepali Manch Spain y de Kaski Samaj Spain.
-- **Contacto y redes**: WhatsApp, llamada y email directos, y enlaces a su TikTok (@kedardhungana4) e Instagram (@kndhungana).
+- **Síguele**: tarjetas de perfil con el estilo de cada red, TikTok (@kedardhungana4) en negro con cian y rosa, e Instagram (@kndhungana) con su degradado. Llevan foto, seguidores, bio y botón "Seguir". Si se añade Facebook, sale una tercera.
+- **Contacto**: tarjeta con su foto, teléfono, email y botones grandes de WhatsApp, Llamar y Email.
 - **Vista previa al compartir**: imagen y texto propios cuando se pega el enlace en WhatsApp o Facebook.
 - **Datos para Google** (`schema.org/Person`): nombre, cargo y locales para que los buscadores le identifiquen.
 
@@ -27,6 +28,7 @@ Kedar tiene cuatro locales en Barcelona y un cargo en la comunidad nepalí, pero
 | `js/main.js` | Lógica: pinta locales y contacto, banderas de oración y animación |
 | `img/namaste/` | Los 8 fotogramas del namaste, sin fondo |
 | `img/montanas/` | Las 5 capas del paisaje (SVG) |
+| `img/avatar.webp` | Foto de perfil de las tarjetas de redes y contacto |
 | `img/og-kedar.jpg` | Imagen que sale al compartir el enlace |
 | `icon-*.png`, `apple-touch-icon.png` | Iconos de la pestaña y de "Añadir a pantalla de inicio" |
 
@@ -36,7 +38,7 @@ Kedar tiene cuatro locales en Barcelona y un cargo en la comunidad nepalí, pero
 
 - **Añadir, quitar o editar un local**: `js/config.js` → `LOCALES`. Cada local es un bloque `{ ... }`; un campo vacío (`""`) no se muestra.
 - **Teléfono y email de Kedar**: `js/config.js` → `CONTACTO`.
-- **Redes (TikTok, Instagram, Facebook)**: `js/config.js` → `REDES`. Solo el usuario, sin @; Facebook con el enlace completo. Si una se deja vacía, no sale.
+- **Redes (TikTok, Instagram, Facebook)**: `js/config.js` → `REDES`. El usuario va sin @, y Facebook con el enlace completo. Los seguidores se escriben a mano: actualízalos de vez en cuando. Si una red se deja vacía, no sale.
 - **Velocidad de la animación**: `js/config.js` → `SUAVIDAD`. La longitud del recorrido está en `css/styles.css` → `#intro { height: 420vh }`.
 - **Textos de "Sobre Kedar" y "Comunidad"**: directamente en `index.html`.
 
@@ -44,9 +46,9 @@ Kedar tiene cuatro locales en Barcelona y un cargo en la comunidad nepalí, pero
 
 1. Sube todo el contenido de la carpeta (incluido `.nojekyll`) a la raíz del repositorio.
 2. *Settings → Pages → Deploy from a branch → `main` / `(root)`*.
-3. La web queda en `https://gatsbys-stocks.github.io/kedar-dhungana/`.
+3. Dominio propio: **kedarnath.site** (archivo `CNAME`). Si cambia el dominio, cambia `https://kedarnath.site/` en `index.html` (`og:url`, `og:image`, `canonical` y el bloque `application/ld+json`). Si no, la vista previa de WhatsApp no sale.
 
-Si el repositorio tiene otro nombre o se le pone un dominio propio, cambia esa dirección en `index.html` (etiquetas `og:url`, `og:image`, `canonical` y el bloque `application/ld+json`). Si no, la vista previa de WhatsApp no sale.
+**Al subir cambios de CSS o JS**, sube el número `?v=6` de `index.html` (`styles.css?v=7`, `config.js?v=7`, `main.js?v=7`). Así los navegadores no se quedan con la versión vieja guardada.
 
 ## Decisiones técnicas
 

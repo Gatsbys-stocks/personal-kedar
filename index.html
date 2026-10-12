@@ -7,16 +7,16 @@
 <meta name="description" content="Kedar Nath Dhungana, empresario nepalí en Barcelona: Supermercat Industria, Atithi, Aruku y Kobe. Expresidente de Prabasi Nepali Manch Spain (Overseas Nepali Forum – Spain).">
 <meta name="theme-color" content="#0b1a3d">
 <meta name="color-scheme" content="light">
-<link rel="canonical" href="https://gatsbys-stocks.github.io/kedar-dhungana/">
+<link rel="canonical" href="https://kedarnath.site/">
 
 <!-- Vista previa al compartir el enlace (WhatsApp, Facebook…).
-     Si el repositorio no se llama "kedar-dhungana", cambia la dirección en og:url y og:image. -->
+     Si cambia el dominio, cambia https://kedarnath.site/ aquí y en el bloque ld+json. -->
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="es_ES">
 <meta property="og:title" content="Kedar Nath Dhungana">
 <meta property="og:description" content="Empresario nepalí en Barcelona · Propietario de Buddha Bhumi · Expresidente de Prabasi Nepali Manch Spain">
-<meta property="og:url" content="https://gatsbys-stocks.github.io/kedar-dhungana/">
-<meta property="og:image" content="https://gatsbys-stocks.github.io/kedar-dhungana/img/og-kedar.jpg">
+<meta property="og:url" content="https://kedarnath.site/">
+<meta property="og:image" content="https://kedarnath.site/img/og-kedar.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=6">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Kedar Nath Dhungana",
   "alternateName": "केदारनाथ ढुङ्गाना",
-  "url": "https://gatsbys-stocks.github.io/kedar-dhungana/",
-  "image": "https://gatsbys-stocks.github.io/kedar-dhungana/img/kedar.webp",
+  "url": "https://kedarnath.site/",
+  "image": "https://kedarnath.site/img/avatar.webp",
   "jobTitle": "Empresario",
   "sameAs": [
     "https://www.instagram.com/kndhungana/",
@@ -219,18 +219,25 @@
   </div>
 </section>
 
+<section class="s-redes" id="redes">
+  <div class="wrap">
+    <div class="redes-top reveal">
+      <div class="kicker"><svg viewBox="0 0 26 14" aria-hidden="true"><path d="M0 14 8 3l4 5 3-4 11 10Z" fill="currentColor"/><path d="M8 3 6 6h4ZM15 4l-1.6 2.1h3.2Z" fill="#fff" opacity=".85"/></svg>Redes sociales</div>
+      <h2>Síguele</h2>
+      <p class="lead">Vídeos y fotos de la comunidad nepalí en Barcelona, sus locales y la cultura de Nepal, cada semana.</p>
+    </div>
+    <div class="perfiles" id="perfiles"><!-- Se rellena desde js/config.js → REDES --></div>
+  </div>
+</section>
+
 <section class="s-contact" id="contacto">
-  <div class="wrap creator">
-    <div class="thumb reveal"><img src="img/kedar.webp" width="345" height="465" loading="lazy" alt="Kedar Nath Dhungana saludando con namaste"></div>
-    <div class="reveal">
+  <div class="wrap contacto">
+    <div class="contacto-card reveal">
+      <img class="contacto-foto" src="img/avatar.webp" width="128" height="128" loading="lazy" alt="Kedar Nath Dhungana">
       <div class="kicker"><svg viewBox="0 0 26 14" aria-hidden="true"><path d="M0 14 8 3l4 5 3-4 11 10Z" fill="currentColor"/><path d="M8 3 6 6h4ZM15 4l-1.6 2.1h3.2Z" fill="#fff" opacity=".85"/></svg>Contacto</div>
       <h2>Hablemos</h2>
       <ul class="cinfo" id="contactoInfo"><!-- js/config.js → CONTACTO --></ul>
-      <div class="btns" id="contactoBotones"></div>
-      <div class="redes">
-        <div class="kicker redes-k">Síguele en redes</div>
-        <div class="redes-list" id="redes"><!-- js/config.js → REDES --></div>
-      </div>
+      <div class="cbtns" id="contactoBotones"></div>
     </div>
   </div>
 </section>
@@ -253,7 +260,7 @@
   </div>
 </footer>
 
-<script src="js/config.js"></script>
-<script src="js/main.js"></script>
+<script src="js/config.js?v=6"></script>
+<script src="js/main.js?v=6"></script>
 </body>
 </html>

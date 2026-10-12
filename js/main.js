@@ -66,31 +66,72 @@
     if (typeof CONTACTO === "undefined") return;
     const c = CONTACTO, info = $("contactoInfo"), btns = $("contactoBotones");
     const lineas = [], botones = [];
-    if (c.whatsapp) {
-      lineas.push(`<li>${ICON.wa}<a href="https://wa.me/${soloNumeros(c.whatsapp)}" ${externo}>${esc(c.telefono || "+" + soloNumeros(c.whatsapp))}</a></li>`);
-      botones.push(`<a class="btn primary" href="https://wa.me/${soloNumeros(c.whatsapp)}" ${externo}>${ICON.wa}WhatsApp</a>`);
-    }
-    if (c.telefono) botones.push(`<a class="btn ghost" href="${tel(c.telefono)}">${ICON.tel}Llamar</a>`);
-    if (c.email) {
-      lineas.push(`<li>${ICON.mail}<a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>`);
-      botones.push(`<a class="btn ghost" href="mailto:${esc(c.email)}">${ICON.mail}Email</a>`);
-    }
+    if (c.telefono) lineas.push(`<li>${ICON.tel}<a href="${tel(c.telefono)}">${esc(c.telefono)}</a></li>`);
+    if (c.email) lineas.push(`<li>${ICON.mail}<a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>`);
+    if (c.whatsapp) botones.push(`<a class="cb cb-wa" href="https://wa.me/${soloNumeros(c.whatsapp)}" ${externo}>${ICON.wa}<span>WhatsApp</span></a>`);
+    if (c.telefono) botones.push(`<a class="cb" href="${tel(c.telefono)}">${ICON.tel}<span>Llamar</span></a>`);
+    if (c.email) botones.push(`<a class="cb" href="mailto:${esc(c.email)}">${ICON.mail}<span>Email</span></a>`);
     if (info) info.innerHTML = lineas.join("");
-    if (btns) btns.innerHTML = botones.join("");
+    if (btns) { btns.innerHTML = botones.join(""); btns.style.setProperty("--n", botones.length); }
   }
 
-  /* ---------- 1c. Redes ---------- */
+  /* ---------- 1c. Redes: tarjetas de perfil estilo TikTok e Instagram ---------- */
   function pintarRedes() {
-    const caja = $("redes");
+    const caja = $("perfiles");
     if (!caja || typeof REDES === "undefined") return;
-    const r = REDES, items = [];
-    const limpio = (u) => String(u).trim().replace(/^@/, "");
-    if (r.tiktok) items.push(`<a class="red red-tt" href="https://www.tiktok.com/@${esc(limpio(r.tiktok))}" ${externo}>${ICON.tt}<span><b>TikTok</b>@${esc(limpio(r.tiktok))}</span></a>`);
-    if (r.instagram) items.push(`<a class="red red-ig" href="https://www.instagram.com/${esc(limpio(r.instagram))}/" ${externo}>${ICON.ig}<span><b>Instagram</b>@${esc(limpio(r.instagram))}</span></a>`);
-    const fb = r.facebook || (typeof CONTACTO !== "undefined" && CONTACTO.facebook);
-    if (fb) items.push(`<a class="red red-fb" href="${esc(fb)}" ${externo}>${ICON.fb}<span><b>Facebook</b>Kedar Dhungana</span></a>`);
-    caja.innerHTML = items.join("");
-    if (!items.length) caja.parentElement.hidden = true;
+    const limpio = (u) => String(u || "").trim().replace(/^@/, "");
+    const stat = (num, txt) => (num ? `<div class="stat"><b>${esc(num)}</b><span>${txt}</span></div>` : "");
+    const bio = `
+      <p class="pbio">Propietario · Buddha Bhumi, Barcelona<br>Expresidente · Prabasi Nepali Manch Spain<br>Expresidente · Kaski Samaj Spain</p>`;
+    const tarjetas = [];
+
+    const tt = REDES.tiktok || {};
+    if (limpio(tt.usuario)) {
+      const u = limpio(tt.usuario), url = `https://www.tiktok.com/@${esc(u)}`;
+      tarjetas.push(`
+        <a class="perfil p-tt reveal" href="${url}" ${externo} aria-label="TikTok de Kedar Dhungana, @${esc(u)}">
+          <div class="pbar"><span class="plogo">${ICON.tt}TikTok</span></div>
+          <div class="pava"><img src="img/avatar.webp" alt="" width="96" height="96" loading="lazy"></div>
+          <div class="pname">Kedar Dhungana</div>
+          <div class="phandle">@${esc(u)}</div>
+          <div class="pstats">${stat(tt.seguidores, "Seguidores")}${stat(tt.meGusta, "Me gusta")}</div>
+          ${bio}
+          <span class="pbtn">Seguir en TikTok</span>
+        </a>`);
+    }
+
+    const ig = REDES.instagram || {};
+    if (limpio(ig.usuario)) {
+      const u = limpio(ig.usuario), url = `https://www.instagram.com/${esc(u)}/`;
+      tarjetas.push(`
+        <a class="perfil p-ig reveal" href="${url}" ${externo} aria-label="Instagram de Kedar Dhungana, @${esc(u)}">
+          <div class="pbar"><span class="plogo">${ICON.ig}Instagram</span></div>
+          <div class="pava"><img src="img/avatar.webp" alt="" width="96" height="96" loading="lazy"></div>
+          <div class="pname">Kedar Dhungana</div>
+          <div class="phandle">@${esc(u)}</div>
+          <div class="pstats">${stat(ig.publicaciones, "Publicaciones")}${stat(ig.seguidores, "Seguidores")}</div>
+          ${bio}
+          <span class="pbtn">Seguir en Instagram</span>
+        </a>`);
+    }
+
+    const fb = REDES.facebook || {};
+    if (fb.enlace) {
+      tarjetas.push(`
+        <a class="perfil p-fb reveal" href="${esc(fb.enlace)}" ${externo} aria-label="Facebook de Kedar Dhungana">
+          <div class="pbar"><span class="plogo">${ICON.fb}Facebook</span></div>
+          <div class="pava"><img src="img/avatar.webp" alt="" width="96" height="96" loading="lazy"></div>
+          <div class="pname">Kedar Dhungana</div>
+          <div class="phandle">Digital creator · Barcelona</div>
+          <div class="pstats">${stat(fb.seguidores, "Seguidores")}</div>
+          ${bio}
+          <span class="pbtn">Seguir en Facebook</span>
+        </a>`);
+    }
+
+    caja.innerHTML = tarjetas.join("");
+    caja.dataset.n = tarjetas.length;
+    if (!tarjetas.length) $("redes").hidden = true;
   }
 
   pintarLocales();
