@@ -13,6 +13,7 @@
   const soloNumeros = (t) => String(t).replace(/\D/g, "");
   const tel = (t) => { const n = soloNumeros(t); return "tel:+" + (n.length === 9 ? "34" + n : n); };
   const externo = 'target="_blank" rel="noopener"';
+  const T = (k) => I18N.t(k), L = (v) => I18N.elegir(v);
 
   /* ---------- Iconos ---------- */
   const ICON = {
@@ -37,25 +38,25 @@
       if (l.email) lineas.push(`<li>${ICON.mail}<a href="mailto:${esc(l.email)}">${esc(l.email)}</a></li>`);
 
       const botones = [];
-      if (l.whatsapp) botones.push(`<a class="lb" href="https://wa.me/${soloNumeros(l.whatsapp)}" ${externo}>${ICON.wa}WhatsApp</a>`);
-      if (l.web) botones.push(`<a class="lb" href="${esc(l.web)}" ${externo}>${ICON.web}Web</a>`);
-      if (l.instagram) botones.push(`<a class="lb" href="https://www.instagram.com/${esc(l.instagram)}/" ${externo}>${ICON.ig}Instagram</a>`);
-      if (tels.length) botones.push(`<a class="lb" href="${tel(tels[0])}">${ICON.tel}Llamar</a>`);
-      if (l.mapa) botones.push(`<a class="lb" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(l.mapa)}" ${externo}>${ICON.map}Cómo llegar</a>`);
+      if (l.whatsapp) botones.push(`<a class="lb" href="https://wa.me/${soloNumeros(l.whatsapp)}" ${externo}>${ICON.wa}${T("btn.whatsapp")}</a>`);
+      if (l.web) botones.push(`<a class="lb" href="${esc(l.web)}" ${externo}>${ICON.web}${T("btn.web")}</a>`);
+      if (l.instagram) botones.push(`<a class="lb" href="https://www.instagram.com/${esc(l.instagram)}/" ${externo}>${ICON.ig}${T("btn.instagram")}</a>`);
+      if (tels.length) botones.push(`<a class="lb" href="${tel(tels[0])}">${ICON.tel}${T("btn.call")}</a>`);
+      if (l.mapa) botones.push(`<a class="lb" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(l.mapa)}" ${externo}>${ICON.map}${T("btn.map")}</a>`);
 
       return `
         <article class="local l-${esc(l.estilo)} reveal">
           <header class="lhead">
-            <div class="ltag">${esc(l.tipo)}</div>
+            <div class="ltag">${esc(L(l.tipo))}</div>
             <h3>${esc(l.nombre)}</h3>
             ${l.nombreOriginal ? `<div class="lnative">${esc(l.nombreOriginal)}</div>` : ""}
           </header>
           <div class="lbody">
-            ${l.cargo ? `<div class="lrole">${esc(l.cargo)}</div>` : ""}
-            ${l.descripcion ? `<p>${esc(l.descripcion)}</p>` : ""}
+            ${L(l.cargo) ? `<div class="lrole">${esc(L(l.cargo))}</div>` : ""}
+            ${L(l.descripcion) ? `<p>${esc(L(l.descripcion))}</p>` : ""}
             <ul class="linfo">${lineas.join("")}</ul>
             <div class="lbtns">${botones.join("")}</div>
-            ${l.desde ? `<span class="since">${esc(l.desde)}</span>` : ""}
+            ${L(l.desde) ? `<span class="since">${esc(L(l.desde))}</span>` : ""}
           </div>
         </article>`;
     }).join("");
@@ -68,9 +69,9 @@
     const lineas = [], botones = [];
     if (c.telefono) lineas.push(`<li>${ICON.tel}<a href="${tel(c.telefono)}">${esc(c.telefono)}</a></li>`);
     if (c.email) lineas.push(`<li>${ICON.mail}<a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>`);
-    if (c.whatsapp) botones.push(`<a class="cb cb-wa" href="https://wa.me/${soloNumeros(c.whatsapp)}" ${externo}>${ICON.wa}<span>WhatsApp</span></a>`);
-    if (c.telefono) botones.push(`<a class="cb" href="${tel(c.telefono)}">${ICON.tel}<span>Llamar</span></a>`);
-    if (c.email) botones.push(`<a class="cb" href="mailto:${esc(c.email)}">${ICON.mail}<span>Email</span></a>`);
+    if (c.whatsapp) botones.push(`<a class="cb cb-wa" href="https://wa.me/${soloNumeros(c.whatsapp)}" ${externo}>${ICON.wa}<span>${T("btn.whatsapp")}</span></a>`);
+    if (c.telefono) botones.push(`<a class="cb" href="${tel(c.telefono)}">${ICON.tel}<span>${T("btn.call")}</span></a>`);
+    if (c.email) botones.push(`<a class="cb" href="mailto:${esc(c.email)}">${ICON.mail}<span>${T("btn.email")}</span></a>`);
     if (info) info.innerHTML = lineas.join("");
     if (btns) { btns.innerHTML = botones.join(""); btns.style.setProperty("--n", botones.length); }
   }
@@ -80,9 +81,9 @@
     const caja = $("perfiles");
     if (!caja || typeof REDES === "undefined") return;
     const limpio = (u) => String(u || "").trim().replace(/^@/, "");
-    const stat = (num, txt) => (num ? `<div class="stat"><b>${esc(num)}</b><span>${txt}</span></div>` : "");
+    const stat = (num, txt) => (num !== "" && num != null ? `<div class="stat"><b>${esc(I18N.numero(num))}</b><span>${esc(txt)}</span></div>` : "");
     const bio = `
-      <p class="pbio">Propietario · Buddha Bhumi, Barcelona<br>Expresidente · Prabasi Nepali Manch Spain<br>Expresidente · Kaski Samaj Spain</p>`;
+      <p class="pbio">${esc(T("social.bio1"))}<br>${esc(T("social.bio2"))}<br>${esc(T("social.bio3"))}</p>`;
     const tarjetas = [];
 
     const tt = REDES.tiktok || {};
@@ -94,9 +95,9 @@
           <div class="pava"><img src="img/avatar.webp" alt="" width="96" height="96" loading="lazy"></div>
           <div class="pname">Kedar Dhungana</div>
           <div class="phandle">@${esc(u)}</div>
-          <div class="pstats">${stat(tt.seguidores, "Seguidores")}${stat(tt.meGusta, "Me gusta")}</div>
+          <div class="pstats">${stat(tt.seguidores, T("social.followers"))}${stat(tt.meGusta, T("social.likes"))}</div>
           ${bio}
-          <span class="pbtn">Seguir en TikTok</span>
+          <span class="pbtn">${esc(T("social.follow.tt"))}</span>
         </a>`);
     }
 
@@ -109,9 +110,9 @@
           <div class="pava"><img src="img/avatar.webp" alt="" width="96" height="96" loading="lazy"></div>
           <div class="pname">Kedar Dhungana</div>
           <div class="phandle">@${esc(u)}</div>
-          <div class="pstats">${stat(ig.publicaciones, "Publicaciones")}${stat(ig.seguidores, "Seguidores")}</div>
+          <div class="pstats">${stat(ig.publicaciones, T("social.posts"))}${stat(ig.seguidores, T("social.followers"))}</div>
           ${bio}
-          <span class="pbtn">Seguir en Instagram</span>
+          <span class="pbtn">${esc(T("social.follow.ig"))}</span>
         </a>`);
     }
 
@@ -122,10 +123,10 @@
           <div class="pbar"><span class="plogo">${ICON.fb}Facebook</span></div>
           <div class="pava"><img src="img/avatar.webp" alt="" width="96" height="96" loading="lazy"></div>
           <div class="pname">Kedar Dhungana</div>
-          <div class="phandle">Digital creator · Barcelona</div>
-          <div class="pstats">${stat(fb.seguidores, "Seguidores")}</div>
+          <div class="phandle">${esc(T("social.fb.handle"))}</div>
+          <div class="pstats">${stat(fb.seguidores, T("social.followers"))}</div>
           ${bio}
-          <span class="pbtn">Seguir en Facebook</span>
+          <span class="pbtn">${esc(T("social.follow.fb"))}</span>
         </a>`);
     }
 
@@ -134,9 +135,19 @@
     if (!tarjetas.length) $("redes").hidden = true;
   }
 
+  I18N.aplicar();
+  I18N.montarSelector();
   pintarLocales();
   pintarContacto();
   pintarRedes();
+
+  // Al cambiar de idioma se vuelven a pintar los bloques generados, ya visibles
+  I18N.alCambiar(() => {
+    pintarLocales();
+    pintarContacto();
+    pintarRedes();
+    document.querySelectorAll("#locales .reveal, #perfiles .reveal").forEach((el) => el.classList.add("in"));
+  });
 
   /* ---------- 2. Banderas de oración (lungta) ---------- */
   (function banderas() {

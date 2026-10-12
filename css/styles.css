@@ -1,13 +1,13 @@
 /* =====================================================================
    Kedar Nath Dhungana · estilos
-   Paleta: noche del Himalaya (azul), nieve, dorado del amanecer y
+   Paleta: rojos suaves del amanecer en el Himalaya (granate, rosa y coral), nieve, dorado y
    carmesí y azul de la bandera de Nepal.
    ===================================================================== */
 :root{
-  --night:#0b1a3d;
-  --night-2:#13285c;
-  --dusk:#2e3470;
-  --snow:#f7f4ef;
+  --night:#3b0f1a;
+  --night-2:#5a1a28;
+  --dusk:#8c2f3d;
+  --snow:#fdf3ef;
   --gold:#ecb95e;
   --rose:#f2a67a;
   --crimson:#c0142f;
@@ -25,8 +25,8 @@ body{background:var(--night);color:var(--ink);font-family:"Manrope",system-ui,sa
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--night)}
 .stage > *{position:absolute}
 
-.sky{inset:0;background:linear-gradient(180deg,#0f1f52 0%,#2d3480 26%,#7d5a9e 44%,#d9849a 58%,#f6b07e 70%,#ffd9a2 80%)}
-.sky-day{inset:0;opacity:0;background:linear-gradient(180deg,#2c5aa8 0%,#6f8fd0 30%,#d8a6c0 52%,#ffc59a 68%,#ffe6b8 80%)}
+.sky{inset:0;background:linear-gradient(180deg,#4a1220 0%,#86283a 24%,#c24e58 42%,#e8857a 58%,#f7b392 70%,#fdd9b8 80%)}
+.sky-day{inset:0;opacity:0;background:linear-gradient(180deg,#b9505c 0%,#de8a86 28%,#f2b4a6 50%,#fbd1b6 68%,#fee7cf 80%)}
 .stars{inset:0 0 50% 0;background-image:
   radial-gradient(1.2px 1.2px at 12% 18%,#fff,transparent),radial-gradient(1px 1px at 28% 8%,#fff,transparent),
   radial-gradient(1.4px 1.4px at 46% 14%,#fff,transparent),radial-gradient(1px 1px at 63% 6%,#fff,transparent),
@@ -54,7 +54,7 @@ body{background:var(--night);color:var(--ink);font-family:"Manrope",system-ui,sa
 .layer{left:0;top:0;width:100%;height:100%;will-change:transform;pointer-events:none;user-select:none}
 .mist{left:-10%;right:-10%;height:22%;pointer-events:none;filter:blur(6px);animation:mist 40s ease-in-out infinite alternate}
 .m1{top:56%;background:linear-gradient(180deg,rgba(255,226,220,0),rgba(255,226,220,.45),rgba(255,226,220,0))}
-.m2{top:70%;background:linear-gradient(180deg,rgba(190,180,230,0),rgba(190,180,230,.35),rgba(190,180,230,0));animation-duration:55s}
+.m2{top:70%;background:linear-gradient(180deg,rgba(240,180,180,0),rgba(240,180,180,.35),rgba(240,180,180,0));animation-duration:55s}
 @keyframes mist{from{transform:translateX(-3%)}to{transform:translateX(3%)}}
 
 /* Kedar recortado */
@@ -67,7 +67,7 @@ body{background:var(--night);color:var(--ink);font-family:"Manrope",system-ui,sa
 }
 .frames img{position:absolute;user-select:none;-webkit-user-drag:none;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;opacity:0;filter:drop-shadow(0 0 30px rgba(255,200,150,.25))}
 .frames img.f0{opacity:1}
-.ground{left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg,rgba(11,26,61,0),rgba(11,26,61,.75) 55%,var(--night) 92%);pointer-events:none}
+.ground{left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg,rgba(59,15,26,0),rgba(59,15,26,.75) 55%,var(--night) 92%);pointer-events:none}
 
 .prayer{left:-2%;right:-2%;top:10px;height:56px;z-index:5;pointer-events:none}
 .prayer svg{width:100%;height:100%;overflow:visible}
@@ -80,7 +80,7 @@ body{background:var(--night);color:var(--ink);font-family:"Manrope",system-ui,sa
 .overlay{left:0;right:0;bottom:0;z-index:4;padding:0 20px max(54px,7vh);text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center}
 .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;font-weight:800;color:var(--gold)}
 .eyebrow .deva{font-size:22px;letter-spacing:0;text-transform:none;font-weight:400}
-.name{margin-top:8px;font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:clamp(38px,7.2vw,112px);line-height:1;letter-spacing:.05em;text-shadow:0 4px 30px rgba(5,10,35,.7)}
+.name{margin-top:8px;font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:clamp(38px,7.2vw,112px);line-height:1;letter-spacing:.05em;text-shadow:0 4px 30px rgba(45,6,16,.7)}
 .name .line{display:block;white-space:nowrap}
 .name .line.last .ch{color:var(--gold)}
 .name .ch{display:inline-block;opacity:0;transform:translateY(.25em);will-change:transform,opacity}
@@ -90,7 +90,7 @@ body{background:var(--night);color:var(--ink);font-family:"Manrope",system-ui,sa
 .rule::after{background:linear-gradient(90deg,var(--gold),transparent)}
 .rule svg{width:22px;height:auto;flex:none}
 .deva-name{font-size:clamp(22px,2.4vw,32px);color:#fff;opacity:0}
-.tagline{margin-top:6px;font-size:clamp(14px,1.3vw,17px);color:rgba(235,232,255,.85);opacity:0;letter-spacing:.04em}
+.tagline{margin-top:6px;font-size:clamp(14px,1.3vw,17px);color:rgba(255,232,228,.88);opacity:0;letter-spacing:.04em}
 .scroll-hint{left:50%;bottom:16px;translate:-50% 0;z-index:5;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.85);display:flex;flex-direction:column;align-items:center;gap:6px}
 .scroll-hint i{width:1px;height:28px;background:linear-gradient(var(--gold),transparent);animation:drip 2.6s ease-in-out infinite;transform-origin:top}
 @keyframes drip{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
@@ -104,9 +104,9 @@ h2{font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:clamp(30px,4.2vw
 .lead{font-size:clamp(17px,1.6vw,20px);max-width:60ch}
 .lead + .lead{margin-top:16px}
 
-.s-about{background:var(--night);color:#eef0ff}
+.s-about{background:var(--night);color:#fff0ee}
 .s-about .kicker{color:var(--gold)}
-.s-about .lead{color:rgba(225,230,255,.82)}
+.s-about .lead{color:rgba(255,228,224,.85)}
 .about{display:grid;grid-template-columns:1.3fr .7fr;gap:64px;align-items:start}
 .facts{display:grid;gap:14px}
 .fact{border:1px solid rgba(236,185,94,.35);border-radius:14px;padding:16px 20px;background:rgba(255,255,255,.04)}
@@ -118,19 +118,19 @@ h2{font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:clamp(30px,4.2vw
 .s-biz h2{color:var(--night)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .card{background:#fff;border-radius:18px;padding:28px 26px;position:relative;overflow:hidden;display:flex;flex-direction:column;
-  box-shadow:0 20px 44px -28px rgba(11,26,61,.45);border:1px solid rgba(11,26,61,.08);transition:transform .6s ease}
+  box-shadow:0 20px 44px -28px rgba(59,15,26,.4);border:1px solid rgba(59,15,26,.08);transition:transform .6s ease}
 .card:hover{transform:translateY(-4px)}
 .card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--crimson),var(--blue))}
 .card .role{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--crimson);font-weight:800}
 .card h3{font-family:"Cormorant Garamond",serif;font-size:31px;font-weight:700;line-height:1.1;margin:8px 0 10px;color:var(--night)}
-.card p{color:#5b5870;font-size:15.5px}
+.card p{color:#6e5558;font-size:15.5px}
 .card .since{margin-top:auto;padding-top:18px;font-size:13px;font-weight:700;color:var(--night);display:flex;align-items:center;gap:10px}
 .card .since::before{content:"";width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:9px solid var(--gold)}
 .card a.more{display:inline-block;margin-top:12px;color:var(--crimson);font-weight:800;font-size:14px;text-decoration:none;border-bottom:2px solid currentColor;align-self:flex-start}
 
 .locales{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .local{background:#fff;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;
-  box-shadow:0 22px 48px -30px rgba(11,26,61,.5);border:1px solid rgba(11,26,61,.08);transition:transform .6s ease}
+  box-shadow:0 22px 48px -30px rgba(59,15,26,.45);border:1px solid rgba(59,15,26,.08);transition:transform .6s ease}
 .local:hover{transform:translateY(-4px)}
 .lhead{padding:26px 28px 22px;color:#fff;position:relative;overflow:hidden}
 .lhead::after{content:"";position:absolute;right:-30px;bottom:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.08)}
@@ -146,14 +146,14 @@ h2{font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:clamp(30px,4.2vw
 .l-aruku .lnative,.l-kobe .lnative{font-size:22px;letter-spacing:.1em}
 .lbody{padding:22px 28px 26px;display:flex;flex-direction:column;flex:1}
 .lrole{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--crimson);font-weight:800;margin-bottom:8px}
-.lbody p{color:#5b5870;font-size:15.5px}
+.lbody p{color:#6e5558;font-size:15.5px}
 .linfo{list-style:none;margin:16px 0 0;display:grid;gap:8px;font-size:14.5px;color:var(--night)}
 .linfo li{display:flex;gap:10px;align-items:flex-start}
 .linfo svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--crimson)}
 .linfo span{overflow-wrap:anywhere}
 .lbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:20px}
 .lb{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;font-size:13.5px;font-weight:700;
-  text-decoration:none;color:var(--night);border:1.5px solid rgba(11,26,61,.18);transition:background .3s,border-color .3s}
+  text-decoration:none;color:var(--night);border:1.5px solid rgba(59,15,26,.18);transition:background .3s,border-color .3s}
 .lb:hover{background:var(--night);color:#fff;border-color:var(--night)}
 .lb svg{width:15px;height:15px;flex:none}
 .local .since{margin-top:14px;font-size:12.5px;font-weight:700;color:#8a879c}
@@ -174,7 +174,7 @@ h2{font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:clamp(30px,4.2vw
 .comm h3{font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:700;line-height:1.1;margin:10px 0 6px}
 .comm .deva{font-size:21px;color:rgba(255,255,255,.8)}
 
-.s-contact{background:linear-gradient(180deg,var(--night) 0%,#3a3a84 45%,#b46e98 80%,#e99a85 100%);color:#fff}
+.s-contact{background:linear-gradient(180deg,var(--night) 0%,#7a2434 42%,#c4555c 75%,#eb9a86 100%);color:#fff}
 .s-contact .kicker{color:var(--gold)}
 .s-contact .lead{color:rgba(255,245,240,.92)}
 .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
@@ -184,13 +184,13 @@ h2{font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:clamp(30px,4.2vw
 .btn.primary{background:var(--gold);color:var(--ink)}
 .btn.ghost{border:1.5px solid rgba(255,255,255,.85);color:#fff}
 
-footer{background:#0e1536;color:#d8daf0;text-align:center}
+footer{background:#2a0a12;color:#f3dcd8;text-align:center}
 footer .in{padding:30px 24px 46px}
 footer .flagrow{display:flex;justify-content:center;margin-bottom:14px}
 footer .flagrow svg{width:32px;height:auto}
 footer .n{font-family:"Cinzel",serif;font-size:21px;font-weight:700;letter-spacing:.08em;color:#fff}
 footer .d{font-size:18px;color:var(--gold);margin-top:2px}
-footer small{display:block;margin-top:10px;color:#8e93bd;font-size:12px;letter-spacing:.2em}
+footer small{display:block;margin-top:10px;color:#c99a98;font-size:12px;letter-spacing:.2em}
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity 1.6s ease,transform 1.6s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -216,13 +216,13 @@ footer small{display:block;margin-top:10px;color:#8e93bd;font-size:12px;letter-s
 .linfo a{color:inherit;text-decoration:none;overflow-wrap:anywhere}
 .linfo a:hover{color:var(--crimson)}
 /* ================= REDES ================= */
-.s-redes{background:radial-gradient(90% 60% at 50% 0%,#232a66 0%,var(--night) 70%);color:#fff;position:relative;overflow:hidden}
+.s-redes{background:radial-gradient(90% 60% at 50% 0%,#6e2232 0%,var(--night) 70%);color:#fff;position:relative;overflow:hidden}
 .s-redes::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:70%;
   background:radial-gradient(40% 50% at 30% 50%,rgba(37,244,238,.10),transparent 70%),radial-gradient(40% 50% at 70% 50%,rgba(225,48,108,.14),transparent 70%);pointer-events:none}
 .s-redes .wrap{position:relative}
 .redes-top{text-align:center;display:flex;flex-direction:column;align-items:center}
 .s-redes .kicker{color:var(--gold)}
-.s-redes .lead{color:rgba(225,230,255,.8);margin:0 auto 44px}
+.s-redes .lead{color:rgba(255,228,224,.82);margin:0 auto 44px}
 .perfiles{display:grid;grid-template-columns:repeat(2,minmax(0,380px));justify-content:center;gap:28px}
 .perfiles[data-n="3"]{grid-template-columns:repeat(3,minmax(0,340px))}
 .perfiles[data-n="1"]{grid-template-columns:minmax(0,400px)}
@@ -276,7 +276,7 @@ footer small{display:block;margin-top:10px;color:#8e93bd;font-size:12px;letter-s
 .contacto{display:flex;justify-content:center}
 .contacto-card{width:min(560px,100%);text-align:center;display:flex;flex-direction:column;align-items:center;
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:28px;padding:0 28px 30px;
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 70px -30px rgba(10,10,40,.6);margin-top:56px}
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 70px -30px rgba(40,6,14,.55);margin-top:56px}
 .contacto-foto{width:112px;height:112px;border-radius:50%;object-fit:cover;border:4px solid var(--gold);margin-top:-56px;margin-bottom:18px;
   box-shadow:0 14px 30px -10px rgba(0,0,0,.5)}
 .contacto-card h2{margin:10px 0 18px}
@@ -290,7 +290,7 @@ footer small{display:block;margin-top:10px;color:#8e93bd;font-size:12px;letter-s
 .cb-wa:hover{background:#2fe175}
 
 /* Pie */
-footer .legal{display:block;margin-top:18px;color:#6d729d;font-size:11.5px;letter-spacing:.06em}
+footer .legal{display:block;margin-top:18px;color:#9c6c6e;font-size:11.5px;letter-spacing:.06em}
 /* Accesibilidad: foco visible */
 a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
 
@@ -304,4 +304,23 @@ a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6
   .cinfo li{font-size:16px}
   .cbtns{gap:8px}
 }
+
+/* ================= SELECTOR DE IDIOMA ================= */
+.lang{position:absolute;z-index:60;top:max(64px,calc(env(safe-area-inset-top) + 56px));left:max(14px,env(safe-area-inset-left));
+  display:inline-flex;align-items:center;gap:7px;padding:8px 13px 8px 11px;border-radius:999px;cursor:pointer;
+  color:#fff;font:800 12.5px/1 "Manrope",system-ui,sans-serif;letter-spacing:.08em;
+  background:rgba(59,15,26,.5);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
+.lang svg{width:16px;height:16px}
+.lang:focus-within{outline:3px solid var(--gold);outline-offset:2px}
+.lang-foot{position:relative;top:auto;left:auto;margin:20px auto 0;display:inline-flex}
+.lang select{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:16px;width:100%}
+
+/* Nepalí: letra con devanagari en todos los textos */
+html[lang="ne"] body{font-family:"Manrope","Noto Sans Devanagari",system-ui,sans-serif}
+html[lang="ne"] h2,html[lang="ne"] .fact dd{font-family:"Cinzel","Noto Sans Devanagari",Georgia,serif}
+/* el espaciado entre letras rompe las ligaduras del devanagari */
+html[lang="ne"] .kicker,html[lang="ne"] .ltag,html[lang="ne"] .lrole,html[lang="ne"] .comm .role,html[lang="ne"] .fact dt,
+html[lang="ne"] .scroll-hint,html[lang="ne"] .tagline,html[lang="ne"] footer small,html[lang="ne"] .stat span{letter-spacing:0}
+html[lang="ne"] .kicker,html[lang="ne"] .ltag,html[lang="ne"] .lrole,html[lang="ne"] .comm .role,html[lang="ne"] .fact dt{font-size:13px}
 
